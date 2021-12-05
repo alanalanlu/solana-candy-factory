@@ -21,3 +21,10 @@ body,
   overflow: auto;
   color   : white;
 }
+
+.list{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: white; 
+  color: rgba(212,21,116,255);
+}

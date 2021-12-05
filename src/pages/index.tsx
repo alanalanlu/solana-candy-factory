@@ -43,7 +43,7 @@ const Home = () => {
           alt="Candy Image" />
 
         <span className="text-gray-800 font-bold text-2xl cursor-default">
-          MINT ELONWOOF NFT
+          MINT ELONWOOF NFT 0.15 Each
         </span>
 
         {!wallet.connected && <span
@@ -68,7 +68,7 @@ const Home = () => {
 
         <div className="flex flex-col justify-start items-start">
         {wallet.connected && 
-          <div>
+          <div style={{margin: "auto"}}>
           <MintButton id="plus" style={{backgroundColor:'#F0F8FF', margin: '10px'  }} onClick={() => mintCount>1 && setmintCount(mintCount-1)}>-</MintButton>
            {mintCount}
           <MintButton id="plus" style={{backgroundColor:'#F0F8FF', margin: '10px'  }} onClick={() => setmintCount(mintCount+1)}>+</MintButton> 
@@ -91,8 +91,30 @@ const Home = () => {
               }
             </MintButton>  
         </div>}
-        </div>
-        {/* <Footer /> */}
+        <div className="container list text-center">
+        <dl className="row">
+          <h1>Project Description</h1>
+          <p className="lead">500 exclusive, hand-mand Elon Woof NFTs minting for only 0.15 Solana. Elon Woof is the son of Shiba Inu and Elon Musk, the newest memetoken in 
+            the Solana blockchain. The goal of the NFT is to provide liquidity for the Token's pool. 50% of the money raised from the sales of the 
+          NFTs will be used to provide liquidity to the pool.  <strong>NFT holders will receive weekly Elon Woof airdrops.</strong> </p>
+          <dt className="col-sm-3" >Price </dt>
+          <dd className="col-sm-9">0.15 Solana</dd>
+
+          <dt className="col-sm-3 ">Quantity</dt>
+          <dd className="col-sm-9 ">  500  </dd>
+
+          <dt className="col-sm-3 ">Utility</dt>
+          <dd className="col-sm-9 "> NFT holders will receive weekly airdrops of Elon Woof Token </dd>
+
+          <dt className="col-sm-3 ">Liquidity</dt>
+          <dd className="col-sm-9 "> 50% of the money generated from the NFT sales will be used to provide liquidity for the Elon Woof Token  </dd>
+
+        </dl>
+      </div>
+      </div>
+        
+        
+        
       </div>
     </main>
   );
