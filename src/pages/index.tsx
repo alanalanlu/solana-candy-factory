@@ -28,9 +28,8 @@ const Home = () => {
     <main className="p-5">
       <Toaster />
       <Head>
-        <title>Ssssolana Candy Factory</title>
-        <meta name="description" content="Solana blockchain candy machine app boilerplate on top of Metaplex Candy Machine. NextJS, Tailwind, Anchor, SolanaLabs.React, dev/mainnet automation scripts." />
-        <link rel="icon" href="/favicon.ico" />
+        <title>ElonWoof Mint</title>
+        <link rel="icon" href="/15.png" />
       </Head>
 
       <Header />
