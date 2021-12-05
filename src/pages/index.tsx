@@ -9,12 +9,18 @@ import Footer from '../components/footer';
 import useWalletBalance from '../hooks/use-wallet-balance';
 import { shortenAddress } from '../utils/candy-machine';
 import Countdown from 'react-countdown';
-import { RecaptchaButton } from '../components/recaptcha-button';
+import styled from "styled-components";
+import { Button} from "@material-ui/core";
+import { pink } from '@material-ui/core/colors';
+
+const MintButton = styled(Button)`padding:10px`;
 
 const Home = () => {
   const [balance] = useWalletBalance()
   const [isActive, setIsActive] = useState(false);
   const wallet = useWallet();
+  const [mintCount, setmintCount] = useState(1);
+
 
   const { isSoldOut, mintStartDate, isMinting, onMint, onMintMultiple, nftsData } = useCandyMachine()
 
@@ -22,7 +28,7 @@ const Home = () => {
     <main className="p-5">
       <Toaster />
       <Head>
-        <title>Solana Candy Factory</title>
+        <title>Ssssolana Candy Factory</title>
         <meta name="description" content="Solana blockchain candy machine app boilerplate on top of Metaplex Candy Machine. NextJS, Tailwind, Anchor, SolanaLabs.React, dev/mainnet automation scripts." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -32,13 +38,13 @@ const Home = () => {
       <div className="flex flex-col justify-center items-center flex-1 space-y-3 mt-20">
         <img
           className="rounded-md shadow-lg"
-          src={`/candy.jpeg`}
+          src={`/15.png`}
           height={200}
           width={200}
           alt="Candy Image" />
 
         <span className="text-gray-800 font-bold text-2xl cursor-default">
-          THIS IS THE BEST CANDY MACHINE EVER
+          MINT ELONWOOF NFT
         </span>
 
         {!wallet.connected && <span
@@ -56,13 +62,22 @@ const Home = () => {
             <p className="text-gray-800 font-bold text-lg cursor-default">Available/Minted/Total: {nftsData.itemsRemaining}/{nftsData.itemsRedeemed}/{nftsData.itemsAvailable}</p>
           </>
         }
+        <span className="text-gray-800 font-bold text-2xl cursor-default">
+          Mint Count
+        </span>
+        
 
         <div className="flex flex-col justify-start items-start">
-          {wallet.connected &&
-            <RecaptchaButton
-              actionName="mint"
+        {wallet.connected && 
+          <div>
+          <MintButton id="plus" style={{backgroundColor:'#F0F8FF', margin: '10px'  }} onClick={() => mintCount>1 && setmintCount(mintCount-1)}>-</MintButton>
+           {mintCount}
+          <MintButton id="plus" style={{backgroundColor:'#F0F8FF', margin: '10px'  }} onClick={() => setmintCount(mintCount+1)}>+</MintButton> 
+          
+          <MintButton
               disabled={isSoldOut || isMinting || !isActive}
-              onClick={onMint}
+              onClick={() => onMintMultiple(mintCount)}
+              style={{backgroundColor:'#F0F8FF', margin: '10px' }}
             >
               {isSoldOut ? (
                 "SOLD OUT"
@@ -75,30 +90,10 @@ const Home = () => {
                   renderer={renderCounter}
                 />
               }
-            </RecaptchaButton>
-          }
-
-          {wallet.connected &&
-            <RecaptchaButton
-              actionName="mint5"
-              disabled={isSoldOut || isMinting || !isActive}
-              onClick={() => onMintMultiple(5)}
-            >
-              {isSoldOut ? (
-                "SOLD OUT"
-              ) : isActive ?
-                <span>MINT 5 {isMinting && 'LOADING...'}</span> :
-                <Countdown
-                  date={mintStartDate}
-                  onMount={({ completed }) => completed && setIsActive(true)}
-                  onComplete={() => setIsActive(true)}
-                  renderer={renderCounter}
-                />
-              }
-            </RecaptchaButton>
-          }
+            </MintButton>  
+        </div>}
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </main>
   );
