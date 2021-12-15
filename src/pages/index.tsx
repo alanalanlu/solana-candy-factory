@@ -29,7 +29,7 @@ const Home = () => {
       <Toaster />
       <Head>
         <title>ElonWoof Mint</title>
-        <link rel="icon" href="/15.png" />
+        <link rel="icon" href="/ElonWoof.png" />
       </Head>
 
       <Header />
@@ -37,7 +37,7 @@ const Home = () => {
       <div className="flex flex-col justify-center items-center flex-1 space-y-3 mt-20">
         <img
           className="rounded-md shadow-lg"
-          src={`/15.png`}
+          src={`/ElonWoof.png`}
           height={200}
           width={200}
           alt="Candy Image" />
@@ -92,30 +92,36 @@ const Home = () => {
             </MintButton>  
         </div>}
         <div className="container list text-center">
+        {/* <div className="listtext"> */}
         <dl className="row">
-          <h1>Project Description</h1>
+          <h1 className="h1-800 font-bold text-2xl cursor-default"> Project Description</h1>
+          <br></br>
           <p className="lead">500 exclusive, hand-mand Elon Woof NFTs minting for only 0.15 Solana. Elon Woof is the son of Shiba Inu and Elon Musk, the newest memetoken in 
-            the Solana blockchain. The goal of the NFT is to provide liquidity for the Token's pool. 50% of the money raised from the sales of the 
-          NFTs will be used to provide liquidity to the pool.  <strong>NFT holders will receive weekly Elon Woof airdrops.</strong> </p>
-          <dt className="col-sm-3" >Price </dt>
-          <dd className="col-sm-9">0.15 Solana</dd>
+            the Solana blockchain. The goal of the NFT is to provide liquidity for the EWOOF Token's pool. 50% of the money raised from the sales of the 
+          NFTs will be used to provide liquidity to the pool.  <br></br> <strong>NFT holders will receive weekly Elon Woof airdrops.</strong> </p>
+          
+          <br></br>
+          <br></br>
+          <dt className="col-sm-3 text-xl" >Price: 0.15 Solana</dt>
+          {/* <dd className="col-sm-9">0.15 Solana</dd> */}
 
-          <dt className="col-sm-3 ">Quantity</dt>
-          <dd className="col-sm-9 ">  500  </dd>
-
-          <dt className="col-sm-3 ">Utility</dt>
-          <dd className="col-sm-9 "> NFT holders will receive weekly airdrops of Elon Woof Token </dd>
-
-          <dt className="col-sm-3 ">Liquidity</dt>
+          <dt className="col-sm-3 text-xl">Quantity: 500</dt>
+          {/* <dd className="col-sm-9 ">  500  </dd> */}
+          <br></br>
+          <br></br>
+          <dt className="col-sm-3 font-bold">Utility</dt>
+          <dd className="col-sm-9 "> NFT holders will receive weekly airdrops of EWOOF Token </dd>
+          <br></br>
+          <br></br>
+          <dt className="col-sm-3 font-bold">Liquidity</dt>
           <dd className="col-sm-9 "> 50% of the money generated from the NFT sales will be used to provide liquidity for the Elon Woof Token  </dd>
+          
 
         </dl>
       </div>
+
       </div>
-        
-        
-        
-      </div>
+    </div>
     </main>
   );
 };
